@@ -1,0 +1,37 @@
+{
+  "name": "sbtc-security-scanner",
+  "version": "1.0.0",
+  "description": "sBTC Security Scanner & Risk Oracle for Stacks DeFi",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "clarinet check",
+    "test": "vitest run",
+    "test:report": "vitest run -- --coverage --costs",
+    "test:watch": "chokidar \"tests/**/*.ts\" \"contracts/**/*.clar\" -c \"npm run test:report\"",
+    "test:integration": "vitest run -- --coverage --costs",
+    "console": "clarinet console",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm run build:contracts && npm run build:frontend",
+    "build:contracts": "clarinet check",
+    "build:frontend": "cd frontend && npm run build",
+    "dev": "npm run dev:frontend",
+    "install:all": "npm install && cd frontend && npm install && cd backend && npm install"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@hirosystems/clarinet-sdk": "^3.0.2",
+    "@stacks/transactions": "^7.0.6",
+    "chokidar-cli": "^3.0.0",
+    "vitest": "^3.1.3",
+    "vitest-environment-clarinet": "^2.3.0"
+  },
+  "main": "vitest.config.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "keywords": ["stacks", "clarity", "defi", "security", "bitcoin", "sbtc"]
+}
